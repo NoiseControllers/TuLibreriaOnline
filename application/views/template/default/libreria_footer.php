@@ -24,9 +24,9 @@
             <div class="col-md-3">
                 <h2>Politicas</h2>
                 <ul>
-                    <li><a rel="nofollow" href="http://relojes.fit/aviso-legal/">Aviso Legal</a></li>
-                    <li><a rel="nofollow" href="http://relojes.fit/politica-de-cookies/">Política de Cookies</a></li>
-                    <li><a rel="nofollow" href="http://relojes.fit/politica-de-privacidad/">Política de Privacidad</a></li>
+                    <li><a rel="nofollow" href="#">Aviso Legal</a></li>
+                    <li><a rel="nofollow" href="#">Política de Cookies</a></li>
+                    <li><a rel="nofollow" href="#">Política de Privacidad</a></li>
                 </ul>
             </div>
         </div>
@@ -34,9 +34,9 @@
 </footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="assets/js/owl.carousel.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/jcarousel.js"></script>
+<script src="<?= base_url('assets/js/owl.carousel.min.js'); ?>"></script>
+<script src="<?= base_url('assets/js/bootstrap.min.js'); ?>"></script>
+<script src="<?= base_url('assets/js/jcarousel.js'); ?>"></script>
 <script>
     $(document).ready(function(){
         jQuery(".service-list-item").length && jQuery('.service-list-item').owlCarousel({

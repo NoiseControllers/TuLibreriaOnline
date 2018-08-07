@@ -39,21 +39,21 @@
             <div class="service-bar">
                 <div class="service-list-item owl-carousel owl-theme owl-loaded">
                     <div class="service-item">
-                        <div class="service-img"><img src="assets/img/services/bs-3_45x.png" alt=""></div>
+                        <div class="service-img"><img src="<?= base_url('assets/img/services/bs-3_45x.png'); ?>" alt=""></div>
                         <div class="text" style="color: #1b8bcc;">
                             <div class="title">Catalogo</div>
                             <div class="caption">Somos distribuidor oficial con envío 24h y garantía de originalidad.</div>
                         </div>
                     </div>
                     <div class="service-item">
-                        <div class="service-img"><img src="assets/img/services/bs-1_45x.png" alt=""></div>
+                        <div class="service-img"><img src="<?= base_url('assets/img/services/bs-1_45x.png'); ?>" alt=""></div>
                         <div class="text" style="color: #1b8bcc;">
                             <div class="title">Envio Rapido</div>
                             <div class="caption">Envío y devolución GRATUITOS.</div>
                         </div>
                     </div>
                     <div class="service-item">
-                        <div class="service-img"><img src="assets/img/services/bs-4_45x.png" alt=""></div>
+                        <div class="service-img"><img src="<?= base_url('assets/img/services/bs-4_45x.png'); ?>" alt=""></div>
                         <div class="text" style="color: #1b8bcc;">
                             <div class="title">Pago Seguro</div>
                             <div class="caption">Utilizamos la plataforma de pago seguro de Amazon.es</div>

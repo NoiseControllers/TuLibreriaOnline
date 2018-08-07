@@ -16,7 +16,7 @@ class Books extends CI_Model
 
     public function newBooks()
     {
-        return $this->db->select('author,title,thumbnail')
+        return $this->db->select('author,title,thumbnail,isbn,slug')
             ->from('books')
             ->order_by('id','ASC')
             ->limit('6')
@@ -28,11 +28,23 @@ class Books extends CI_Model
     {
         return
             $this->db
-            ->select('author,title,thumbnail')
+            ->select('author,title,thumbnail,isbn,slug')
             ->from('books')
             ->order_by('rand()')
             ->limit('20')
             ->get()
             ->result_array();
+    }
+
+    public function bookData($title,$isbn)
+    {
+        return
+            $this->db
+                ->select('books.author,books.title,books.overview,books.CheckOutDate,books.thumbnail')
+                ->from('books')
+                ->where('slug',$title)
+                ->where('isbn',$isbn)
+                ->get()
+                ->row();
     }
 }

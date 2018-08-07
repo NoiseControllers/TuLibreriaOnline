@@ -2,14 +2,14 @@
 /**
  * Created by PhpStorm.
  * User: jose
- * Date: 03/08/2018
- * Time: 12:20
+ * Date: 04/08/2018
+ * Time: 0:59
  */
 
-defined('BASEPATH') OR exit('No direct script access allowed');
-
-class MainController extends CI_Controller
+class Libro extends CI_Controller
 {
+    private $bookData;
+
     public function __construct()
     {
         parent::__construct();
@@ -20,13 +20,12 @@ class MainController extends CI_Controller
         $this->load->model('Books');
     }
 
-    public function index()
+    public function index($title = null, $isbn=null)
     {
+        $this->existBook($title,$isbn);
 
         $ConfigurationSite = $this->MainModel->Configuration();
         $siteCategories = $this->Categories->Categories();
-        $newBooks = $this->Books->newBooks();
-        $randomBooks = $this->Books->randomBooks();
 
         $data = [
             'site_name' => $ConfigurationSite->name,
@@ -37,15 +36,28 @@ class MainController extends CI_Controller
             'site_categories' => $siteCategories,
         ];
 
-        $books = [
-            'newBooks' => $newBooks,
-            'randomBooks' => $randomBooks
+        $book = [
+            'book_title' => $this->bookData->title,
+            'book_author' => $this->bookData->author,
+            'book_categorie' => 'Desconocido',
+            'book_checkOutDate' => $this->bookData->CheckOutDate,
+            'book_thumbnail' => $this->bookData->thumbnail,
+            'book_sinopsis' => $this->bookData->overview
         ];
 
         $this->parser->parse('template/default/libreria_head', $data);
         $this->parser->parse('template/default/libreria_menu_top', $data);
-        $this->parser->parse('template/default/libreria_index', $books);
+        $this->parser->parse('template/default/Book/book_view', $book);
         $this->load->view('template/default/libreria_footer');
 
+    }
+
+    private function existBook($title,$isbn)
+    {
+        $book = $this->Books->bookData($title,$isbn);
+        if (is_object($book))
+            $this->bookData = $book;
+        else
+            show_404();
     }
 }
