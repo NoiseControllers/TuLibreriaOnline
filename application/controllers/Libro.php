@@ -16,16 +16,16 @@ class Libro extends CI_Controller
         $this->output->enable_profiler(TRUE);
         $this->load->library('parser');
         $this->load->model('MainModel');
-        $this->load->model('Categories');
+        $this->load->model('CategoriesModel');
         $this->load->model('Books');
     }
 
-    public function index($title = null, $isbn=null)
+    public function index($title = null, $asin=null)
     {
-        $this->existBook($title,$isbn);
+        $this->existBook($asin);
 
         $ConfigurationSite = $this->MainModel->Configuration();
-        $siteCategories = $this->Categories->Categories();
+        $siteCategories = $this->CategoriesModel->Categories();
 
         $data = [
             'site_name' => $ConfigurationSite->name,
@@ -40,7 +40,7 @@ class Libro extends CI_Controller
             'book_title' => $this->bookData->title,
             'book_author' => $this->bookData->author,
             'book_categorie' => 'Desconocido',
-            'book_checkOutDate' => $this->bookData->CheckOutDate,
+            'book_checkOutDate' => $this->bookData->fecha,
             'book_thumbnail' => $this->bookData->thumbnail,
             'book_sinopsis' => $this->bookData->overview
         ];
@@ -52,9 +52,9 @@ class Libro extends CI_Controller
 
     }
 
-    private function existBook($title,$isbn)
+    private function existBook($asin)
     {
-        $book = $this->Books->bookData($title,$isbn);
+        $book = $this->Books->bookData($asin);
         if (is_object($book))
             $this->bookData = $book;
         else

@@ -11,7 +11,7 @@
                             {newBooks}
                                 <li>
                                     <div class="homethumb">
-                                        <a href="<?= base_url('libro/{slug}/{isbn}'); ?>">
+                                        <a href="<?= base_url('libro/{slug}/{asin}'); ?>">
                                             <img src="<?= base_url("upload/images/{thumbnail}"); ?>" alt="{title}" width="180px" height="270px" >
                                             <span class="overlay"><p>{title}</p></span>
                                         </a>
@@ -36,12 +36,12 @@
             {randomBooks}
                 <li class="book">
                     <div class="pagethumb">
-                        <a href="<?= base_url('libro/{slug}/{isbn}'); ?>">
+                        <a href="<?= base_url('libro/{slug}/{asin}'); ?>">
                             <img src="<?= base_url('upload/images/{thumbnail}'); ?>" class="display: inline;" alt="{title}">
                         </a>
                     </div>
                     <div class="info">
-                        <h3><a href="<?= base_url('libro/{title}/{isbn}'); ?>">{title}</a></h3>
+                        <h3><a href="<?= base_url('libro/{slug}/{asin}'); ?>">{title}</a></h3>
                         <h4>{author}</h4>
                     </div>
                 </li>

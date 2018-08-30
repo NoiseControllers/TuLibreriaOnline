@@ -15,18 +15,23 @@ class MainController extends CI_Controller
         parent::__construct();
         $this->output->enable_profiler(TRUE);
         $this->load->library('parser');
+        $this->load->helper('text');
         $this->load->model('MainModel');
-        $this->load->model('Categories');
+        $this->load->model('CategoriesModel');
         $this->load->model('Books');
+        $this->load->library('GenerateSlug');
     }
 
     public function index()
     {
-
         $ConfigurationSite = $this->MainModel->Configuration();
-        $siteCategories = $this->Categories->Categories();
-        $newBooks = $this->Books->newBooks();
-        $randomBooks = $this->Books->randomBooks();
+        $siteCategories = $this->CategoriesModel->Categories();
+        $newBooks = $this
+            ->generateslug
+            ->slug($this->Books->newBooks());
+        $randomBooks = $this
+            ->generateslug
+            ->slug($this->Books->randomBooks());
 
         $data = [
             'site_name' => $ConfigurationSite->name,

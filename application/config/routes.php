@@ -52,4 +52,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'MainController';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-$route['libro/([a-z-]+)/(\d+)'] = "libro/index/$1/$2";
+$route['libro/([a-z-0-9]+)/(\w+)'] = "libro/index/$1/$2";
+
+/*Categories*/
+$route['libros'] = "categories";
+$route['libros/([a-z-]+)'] = "categories/index/$1/";
+
+/* API */
+$route['api/search/([a-z-A-Z-0-9]+)'] = "Api/Search/SearchController/search/$1";

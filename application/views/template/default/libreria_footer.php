@@ -81,7 +81,18 @@
             $('.carousel-prev').jcarouselControl({target: '-=4'});
             $('.carousel-next').jcarouselControl({target: '+=4'});
         }
+
+        /**/
+
+        $('#search-form').keyup(function(e){
+            console.log(e);
+        })
+
+
     });
 </script>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b784b4780cb9edb"></script>
+
 </body>
 </html>

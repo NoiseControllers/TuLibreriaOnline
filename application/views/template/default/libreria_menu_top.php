@@ -20,13 +20,13 @@
                         <ul class="dropdown-menu">
                             <div class="drop-row">
                                 {site_categories}
-                                    <li><a href="">{name}</a></li>
+                                    <li><a href="<?= base_url('libros/{slug}'); ?>">{name}</a></li>
                                 {/site_categories}
                             </div>
                         </ul>
                     </li>
                 </ul>
-                <form action="#" class="navbar-form navbar-right hidden-sm">
+                <form id="search-form" action="#" class="navbar-form navbar-right hidden-sm">
                     <div class="form-group form-group-sm is-empty"><input type="text" placeholder="Buscar... " name="q" class="form-control" value=""><span class="material-input"></span></div>
                     <input type="hidden" name="change" value="1">
                     <button type="submit" class="searchbut"><i class="material-icons">search</i></button>
